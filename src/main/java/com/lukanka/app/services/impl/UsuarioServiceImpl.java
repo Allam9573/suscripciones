@@ -30,4 +30,27 @@ public class UsuarioServiceImpl implements UsuarioService {
         return this.usuarioRepository.findById(id).get();
     }
 
+    @Override
+    public Usuario actualizarUsuario(int id, Usuario usuario) {
+        Usuario usuarioActualizar = this.usuarioRepository.findById(id).get();
+        if (null != usuarioActualizar) {
+            usuarioActualizar.setNombre(usuario.getNombre());
+            usuarioActualizar.setApellido(usuario.getApellido());
+            usuarioActualizar.setDireccionFacturacion(usuario.getDireccionFacturacion());
+            this.usuarioRepository.save(usuarioActualizar);
+        }
+        return usuarioActualizar;
+    }
+
+    @Override
+    public Usuario eliminarUsuario(int id) {
+        Usuario usuarioEliminar = this.usuarioRepository.findById(id).get();
+        if (usuarioEliminar != null) {
+            this.usuarioRepository.delete(usuarioEliminar);
+            return usuarioEliminar;
+        } else {
+            return null;
+        }
+    }
+
 }

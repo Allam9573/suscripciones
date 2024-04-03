@@ -1,5 +1,7 @@
 package com.lukanka.app.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,6 +24,7 @@ public class DireccionFacturacion {
     private String estado;
     private String ciudad;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "direccionFacturacion")
     private Usuario usuario;
 
