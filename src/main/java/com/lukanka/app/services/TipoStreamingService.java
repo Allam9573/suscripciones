@@ -10,4 +10,8 @@ public interface TipoStreamingService {
 
     public List<TipoStreaming> listarTiposStreaming();
 
+    public TipoStreaming buscarStreaming(int id);
+
+    public TipoStreaming actualizarStreaming(int id, TipoStreaming tipoStreaming);
+
 }

@@ -17,13 +17,27 @@ public class TipoStreamingServiceImpl implements TipoStreamingService {
 
     @Override
     public TipoStreaming crearStreaming(TipoStreaming tipoStreaming) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'crearStreaming'");
+        return this.tipoStreamingRepository.save(tipoStreaming);
     }
 
     @Override
     public List<TipoStreaming> listarTiposStreaming() {
         return (List<TipoStreaming>) this.tipoStreamingRepository.findAll();
+    }
+
+    @Override
+    public TipoStreaming buscarStreaming(int id) {
+        return this.tipoStreamingRepository.findById(id).get();
+    }
+
+    @Override
+    public TipoStreaming actualizarStreaming(int id, TipoStreaming tipoStreaming) {
+        TipoStreaming actualizarStreaming = this.tipoStreamingRepository.findById(id).get();
+        if (null != actualizarStreaming) {
+            actualizarStreaming.setDescripcion(tipoStreaming.getDescripcion());
+            this.tipoStreamingRepository.save(actualizarStreaming);
+        }
+        return actualizarStreaming;
     }
 
 }
