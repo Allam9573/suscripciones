@@ -48,4 +48,9 @@ public class UsuarioController {
     public Usuario eliminarUsuario(@PathVariable int id) {
         return this.usuarioServiceImpl.eliminarUsuario(id);
     }
+
+    @GetMapping("/buscar/nombre")
+    public Usuario buscarPorNombre(@RequestParam String q) {
+        return this.usuarioServiceImpl.buscarPorNombre(q);
+    }
 }

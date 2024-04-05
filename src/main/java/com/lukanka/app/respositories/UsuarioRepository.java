@@ -8,4 +8,6 @@ import com.lukanka.app.entities.Usuario;
 @Repository
 public interface UsuarioRepository extends CrudRepository<Usuario, Integer> {
 
+    public Usuario findByNombre(String nombre);
+
 }

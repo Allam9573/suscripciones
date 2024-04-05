@@ -8,4 +8,6 @@ import com.lukanka.app.entities.TipoStreaming;
 @Repository
 public interface TipoStreamingRepository extends CrudRepository<TipoStreaming, Integer> {
 
+    public TipoStreaming findByDescripcion(String descripcion);
+
 }

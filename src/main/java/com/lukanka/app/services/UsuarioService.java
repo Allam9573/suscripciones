@@ -16,4 +16,6 @@ public interface UsuarioService {
 
     public Usuario eliminarUsuario(int id);
 
+    public Usuario buscarPorNombre(String nombre);
+
 }

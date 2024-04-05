@@ -1,5 +1,8 @@
 package com.lukanka.app.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,8 +27,9 @@ public class Plan {
     @Column(columnDefinition = "decimal(10,2)")
     private double precio;
 
+    @JsonBackReference
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idstreaming", referencedColumnName = "idstreaming")
     private TipoStreaming tipoStreaming;
-
+    
 }

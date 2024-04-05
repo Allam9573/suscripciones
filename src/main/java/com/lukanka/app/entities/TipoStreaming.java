@@ -3,6 +3,7 @@ package com.lukanka.app.entities;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,7 +25,7 @@ public class TipoStreaming {
     private int idStreaming;
     private String descripcion;
 
-    @JsonIgnore
+    @JsonManagedReference
     @OneToMany(mappedBy = "tipoStreaming")
     private List<Plan> planes;
 

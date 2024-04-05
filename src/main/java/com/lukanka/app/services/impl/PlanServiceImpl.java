@@ -25,4 +25,20 @@ public class PlanServiceImpl implements PlanService {
         return (List<Plan>) this.planRepository.findAll();
     }
 
+    @Override
+    public Plan buscarPlan(int id) {
+        return this.planRepository.findById(id).get();
+    }
+
+    @Override
+    public Plan actualizarPlan(int id, Plan plan) {
+        Plan actualizarPlan = this.planRepository.findById(id).get();
+        if (actualizarPlan != null) {
+            actualizarPlan.setDescripcion(plan.getDescripcion());
+            actualizarPlan.setTipoStreaming(plan.getTipoStreaming());
+            this.planRepository.save(actualizarPlan);
+        }
+        return actualizarPlan;
+    }
+
 }

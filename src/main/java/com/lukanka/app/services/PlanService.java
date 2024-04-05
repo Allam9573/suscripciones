@@ -10,4 +10,8 @@ public interface PlanService {
 
     public List<Plan> listarPlanes();
 
+    public Plan buscarPlan(int id);
+
+    public Plan actualizarPlan(int id, Plan plan);
+
 }

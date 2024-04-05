@@ -40,4 +40,11 @@ public class TipoStreamingServiceImpl implements TipoStreamingService {
         return actualizarStreaming;
     }
 
+    @Override
+    public TipoStreaming eliminar(int id) {
+        TipoStreaming eliminarStreaming = this.tipoStreamingRepository.findById(id).get();
+        this.tipoStreamingRepository.delete(eliminarStreaming);
+        return eliminarStreaming;
+    }
+
 }
